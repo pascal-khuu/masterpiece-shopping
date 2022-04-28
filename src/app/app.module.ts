@@ -4,10 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
