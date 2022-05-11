@@ -23,24 +23,24 @@
         <label for="usernameid" class="form-label">Nom d'utilisateur</label>
         <div class="input-group">
             <span class="input-group-text" id="basic-addon1">@</span>
-            <input formControlName="userName" type="text" class="form-control" id="userNameId" aria-label="userName"
+            <input formControlName="username" type="text" class="form-control" id="userNameId" aria-label="username"
                 aria-describedby="basic-addon1">
         </div>
-        <div *ngIf="inscription.controls['userName'].touched && inscription.controls['userName'].getError('required')"
+        <div *ngIf="inscription.controls['username'].touched && inscription.controls['username'].getError('required')"
             class="form-text alert-danger">
             Le nom d'utilisateur est obligatoire.
         </div>
         <div id="emailHelp" class="form-text mb-3 alert-danger"
-            *ngIf="inscription.controls['userName'].touched &&inscription.controls['userName'].getError('email')">
+            *ngIf="inscription.controls['username'].touched &&inscription.controls['username'].getError('email')">
             Le nom de l'utilisateur doit être en format email.
         </div>
-        <div *ngIf="inscription.controls['userName'].dirty && inscription.controls['userName'].getError('minlength')"
+        <div *ngIf="inscription.controls['username'].dirty && inscription.controls['username'].getError('minlength')"
             class="form-text alert-danger">
-            Le mot de passe doit avoir une longueur min de 12 caractères.
+            Le nom d'utilisateur doit avoir une longueur min de 12 caractères.
         </div>
-        <div *ngIf="inscription.controls['userName'].dirty && inscription.controls['userName'].getError('maxlength')"
+        <div *ngIf="inscription.controls['username'].dirty && inscription.controls['username'].getError('maxlength')"
             class="form-text alert-danger">
-            Le mot de passe ne doit pas dépasser 30 caractères.
+            Le nom d'utilisateur ne doit pas dépasser 30 caractères.
         </div>
             
         

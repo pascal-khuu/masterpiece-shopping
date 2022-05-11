@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,9 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { PageCreateProductComponent } from './pages/page-create-product/page-create-product.component';
+import { PageListProductComponent } from './pages/page-list-product/page-list-product.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,17 @@ import { HttpClientModule } from '@angular/common/http';
     NavBarComponent,
     SignUpComponent,
     WelcomeComponent,
-    SignInComponent
+    SignInComponent,
+    PageNotFoundComponent,
+    PageCreateProductComponent,
+    PageListProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
