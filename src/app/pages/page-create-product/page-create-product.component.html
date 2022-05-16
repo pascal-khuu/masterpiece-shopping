@@ -1,1 +1,50 @@
-<p>page-create-product works!</p>
+<main class="container-xl">
+    <h1>Création un produit</h1>
+   
+    <form class="d-grid col-12 col-md-6 mx-auto" (ngSubmit)= "onSubmitProduct()" [formGroup]="creerProduit">
+        <div class="mb-3">
+        <label for="productNameId" class="form-label">Nom du produit</label>
+            <div class="input-group">
+                <input formControlName="productName"  type="text" class="form-control" id="productNameId" aria-label="userHelp"aria-describedby="basic-addon1">
+            </div>
+        <div class="mb-3">
+        <label for="priceId" class="form-label">Prix</label>
+            <div class="input-group">
+                <input formControlName="price" type="number" class="form-control" id="priceId" aria-label="userHelp" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="mb-3">
+        <label for="fabricsId" class="form-label">tissu</label>
+            <div class="input-group">
+                <input formControlName= "fabrics" type="text" class="form-control" id="fabricsId" aria-label="userHelp" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="mb-3">
+        <label for="numberStockId" class="form-label">Nombre de stocks</label>
+            <div class="input-group">
+                <input formControlName= "numberStock" type="number" class="form-control" id="numberStockId" aria-label="userHelp" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="mb-3">
+        <label for="categoriesId" class="form-label">Catégorie</label>
+            <div class="input-group">
+                <input formControlName= "mainCategoryId" type="number" class="form-control" id="categoriesId" aria-label="userHelp" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="brandsId" class="form-label">Marque</label>
+            <div class="input-group">
+                <input formControlName= "mainBrandId" type="number" class="form-control" id="brandsId" aria-label="userHelp" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="mb-3"></div>
+            <label for="sizesId" class="form-label">Taille</label>
+            <div class="input-group">
+                <input formControlName= "mainSizeId" type="number" class="form-control" id="sizesId" aria-label="fabrics" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="d-grid col-12 col-md-3 ms-auto">
+            <button [disabled]="creerProduit.invalid" type="submit" class="btn btn-dark text-nowrap">Créer</button>
+        </div>
+    </form>
+</main>

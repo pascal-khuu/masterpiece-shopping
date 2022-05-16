@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 import { PageCreateProductComponent } from './pages/page-create-product/page-create-product.component';
 import { PageListProductComponent } from './pages/page-list-product/page-list-product.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
@@ -11,7 +12,7 @@ const routes: Routes = [
   {path: '', component:WelcomeComponent},
   { path: 'sign-up', component:SignUpComponent },
   { path: 'sign-in', component: SignInComponent },
-  { path: 'create-product', component:PageCreateProductComponent},
+  { path: 'create-product', canActivate: [AuthGuard], component:PageCreateProductComponent},
   {path:'list-product', component:PageListProductComponent},
   { path: '**', component: PageNotFoundComponent}
   

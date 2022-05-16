@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class SignInComponent implements OnInit {
   signInError=false;
-  constructor(private authentication:AuthenticationService) { }
+  constructor(private authentication:AuthenticationService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +27,8 @@ export class SignInComponent implements OnInit {
         console.log(resp.token);
         // TODO stockage de mon token 
         localStorage.setItem("token", resp.token);
+        this.router.navigateByUrl('/create-product');
+        this.authentication.messager.next(true);
       },
       // method a appeler en cas d'error
       error: (err: any) => {

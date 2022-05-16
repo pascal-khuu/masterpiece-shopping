@@ -1,1 +1,25 @@
-<p>page-list-product works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom du produit</th>
+            <th>Prix du produit</th>
+            <th>Tissu du produit</th>
+            <th>Nombre de produits</th>
+            <th>Catégorie</th>
+            <th>Marque</th>
+            <th>Taille du  produit</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of listProducts">
+            <td>{{ product.productName }}</td> 
+            <td>{{ product.price }}</td> 
+            <td>{{ product.fabrics }}</td> 
+            <td>{{ product.numberStock }}</td> 
+            <td>{{ product.category.categoryName}}</td>
+            <td>{{ product.brand.brandName }}</td>
+            <td>{{ product.size.sizeName}}</td> 
+        </tr>
+    </tbody>
+</table>
