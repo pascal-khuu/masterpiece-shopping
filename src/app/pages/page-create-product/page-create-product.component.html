@@ -7,6 +7,7 @@
             <div class="input-group">
                 <input formControlName="productName"  type="text" class="form-control" id="productNameId" aria-label="userHelp"aria-describedby="basic-addon1">
             </div>
+        </div>
         <div class="mb-3">
         <label for="priceId" class="form-label">Prix</label>
             <div class="input-group">
@@ -25,24 +26,22 @@
                 <input formControlName= "numberStock" type="number" class="form-control" id="numberStockId" aria-label="userHelp" aria-describedby="basic-addon1">
             </div>
         </div>
-        <div class="mb-3">
-        <label for="categoriesId" class="form-label">Catégorie</label>
-            <div class="input-group">
-                <input formControlName= "mainCategoryId" type="number" class="form-control" id="categoriesId" aria-label="userHelp" aria-describedby="basic-addon1">
-            </div>
-        </div>
-        <div class="mb-3">
-            <label for="brandsId" class="form-label">Marque</label>
-            <div class="input-group">
-                <input formControlName= "mainBrandId" type="number" class="form-control" id="brandsId" aria-label="userHelp" aria-describedby="basic-addon1">
-            </div>
-        </div>
-        <div class="mb-3"></div>
-            <label for="sizesId" class="form-label">Taille</label>
-            <div class="input-group">
-                <input formControlName= "mainSizeId" type="number" class="form-control" id="sizesId" aria-label="fabrics" aria-describedby="basic-addon1">
-            </div>
-        </div>
+        <label for="categoriesId" class="form-label">Catégories</label>
+        <select formControlName= "mainCategoryId" name="categorie" id="categorie">
+            <option   *ngFor="let categorie of categorieProduct" id="categorieId" value={{categorie.id}}>{{categorie.categoryName}}</option>
+        </select>
+        
+        <label for="brandsId" class="form-label">Marques</label>
+        <select   formControlName= "mainBrandId" name="brand" id="brand">
+            <option   *ngFor="let brand of brandProduct" id="brandId" value={{brand.id}} >{{brand.brandName}}</option>
+        </select>
+       
+
+        <label for="sizesId" class="form-label">Tailles</label>
+        <select  formControlName= "mainSizeId" name="size" id="size">
+            <option *ngFor="let size of sizeProduct" id="sizeId" value={{size.id}}>{{size.sizeName}}</option>
+        </select>
+        
         <div class="d-grid col-12 col-md-3 ms-auto">
             <button [disabled]="creerProduit.invalid" type="submit" class="btn btn-dark text-nowrap">Créer</button>
         </div>

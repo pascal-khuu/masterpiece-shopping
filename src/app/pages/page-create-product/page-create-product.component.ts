@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Brand } from 'src/app/models/brand';
+import { Categorie } from 'src/app/models/categorie';
 import { Product } from 'src/app/models/product';
+import { Size } from 'src/app/models/size';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -10,18 +14,35 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class PageCreateProductComponent implements OnInit {
   creerProduit!: FormGroup;
+  public brandProduct!:Brand[];
+  public categorieProduct!: Categorie[];
+  public sizeProduct!: Size[];
   public listProducts!: Product[];
-  constructor(private fb: FormBuilder, private productService:ProductService) { }
+  constructor(private fb: FormBuilder, private productService:ProductService, private Router: Router) { }
 
   ngOnInit(): void {
     this.creerProduit=this.fb.group({
       productName:['',[Validators.required]],
-      price: [, [Validators.required]],
+      price: [0, [Validators.required]],
       fabrics: ['', [Validators.required]],
-      numberStock: [, [Validators.required]],
-      mainCategoryId: [, [Validators.required]],
-      mainBrandId: [, [Validators.required]],
-      mainSizeId: [, [Validators.required]],
+      numberStock: [0, [Validators.required]],
+      mainCategoryId: [1, [Validators.required]],
+      mainBrandId: [1, [Validators.required]],
+      mainSizeId: [1, [Validators.required]],
+    })
+    this.productService.getBrands().subscribe((respbrand) => {
+      console.log(respbrand);
+      this.brandProduct = respbrand;
+    })
+
+    this.productService.getCategories().subscribe((respcategorie) => {
+      console.log(respcategorie);
+      this.categorieProduct = respcategorie;
+    })
+
+    this.productService.getSizes().subscribe((respsize) => {
+      console.log(respsize);
+      this.sizeProduct = respsize;
     })
 
     this.productService.getProducts().subscribe((resp) => {
@@ -45,6 +66,7 @@ export class PageCreateProductComponent implements OnInit {
     console.log(newProduct);
     this.productService.createNewProduct(newProduct).subscribe(() => {
       console.log("un produit a été crée");
+      this.Router.navigateByUrl("/list-product");
     })
 }
 

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageCreateProductComponent } from './pages/page-create-product/page-create-product.component';
 import { PageListProductComponent } from './pages/page-list-product/page-list-product.component';
+import { PageUpdateComponent } from './page-update/page-update.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PageListProductComponent } from './pages/page-list-product/page-list-pr
     SignInComponent,
     PageNotFoundComponent,
     PageCreateProductComponent,
-    PageListProductComponent
+    PageListProductComponent,
+    PageUpdateComponent
   ],
   imports: [
     BrowserModule,

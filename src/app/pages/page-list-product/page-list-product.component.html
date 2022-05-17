@@ -20,6 +20,9 @@
             <td>{{ product.category.categoryName}}</td>
             <td>{{ product.brand.brandName }}</td>
             <td>{{ product.size.sizeName}}</td> 
+            <td>
+                <button class="btn btn-warning" routerLink="/update-product/{{product.id}}">Modifier</button>
+            </td>
         </tr>
     </tbody>
 </table>

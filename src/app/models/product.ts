@@ -1,4 +1,5 @@
 export class Product {
+    id?:String;
     productName:String;
     // picture:String;
     price:number;
