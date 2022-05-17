@@ -46,21 +46,21 @@ export class ProductService {
   getBrands(): Observable<Brand[]> {
     const token = localStorage.getItem("token");
     return this.http.get<Brand[]>(
-      `${this.urlApi}/products/brands`,
+      `${this.urlApi}/brands`,
       { headers: { Authorization: `Bearer ${token}` } }
     )
   }
   getCategories(): Observable<Categorie[]> {
     const token = localStorage.getItem("token");
     return this.http.get<Categorie[]>(
-      `${this.urlApi}/products/categories`,
+      `${this.urlApi}/categories`,
       { headers: { Authorization: `Bearer ${token}` } }
     )
   }
   getSizes(): Observable<Size[]> {
     const token = localStorage.getItem("token");
     return this.http.get<Size[]>(
-      `${this.urlApi}/products/sizes`,
+      `${this.urlApi}/sizes`,
       { headers: { Authorization: `Bearer ${token}` } }
     )
   }

@@ -17,7 +17,6 @@ export class PageCreateProductComponent implements OnInit {
   public brandProduct!:Brand[];
   public categorieProduct!: Categorie[];
   public sizeProduct!: Size[];
-  public listProducts!: Product[];
   constructor(private fb: FormBuilder, private productService:ProductService, private Router: Router) { }
 
   ngOnInit(): void {
@@ -43,11 +42,6 @@ export class PageCreateProductComponent implements OnInit {
     this.productService.getSizes().subscribe((respsize) => {
       console.log(respsize);
       this.sizeProduct = respsize;
-    })
-
-    this.productService.getProducts().subscribe((resp) => {
-      console.log(resp);
-      this.listProducts = resp;
     })
     
   }
