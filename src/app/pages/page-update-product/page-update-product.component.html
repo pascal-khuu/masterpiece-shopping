@@ -18,13 +18,6 @@
             </div>
         </div>
         <div class="mb-3">
-            <label for="fabricsId" class="form-label">tissu</label>
-            <div class="input-group">
-                <input formControlName="fabrics" type="text" class="form-control" id="fabricsId" aria-label="userHelp"
-                    aria-describedby="basic-addon1">
-            </div>
-        </div>
-        <div class="mb-3">
             <label for="numberStockId" class="form-label">Nombre de stocks</label>
             <div class="input-group">
                 <input formControlName="numberStock" type="number" class="form-control" id="numberStockId"
@@ -46,6 +39,11 @@
         <label for="sizesId" class="form-label">Tailles</label>
         <select formControlName="mainSizeId" name="size" id="size">
             <option *ngFor="let size of sizeProduct" id="sizeId" value={{size.id}}>{{size.sizeName}}</option>
+        </select>
+
+        <label for="fabricsId" class="form-label">Tissu</label>
+        <select formControlName="mainFabricsId" name="fabrics" id="fabricsId">
+            <option *ngFor="let fabric of fabricsProduct" id="fabricsId" value={{fabric.id}}>{{fabric.fabricsName}}</option>
         </select>
 
         <div class="d-grid col-12 col-md-3 ms-auto">

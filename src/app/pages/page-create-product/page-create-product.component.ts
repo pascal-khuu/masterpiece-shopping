@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
 import { Categorie } from 'src/app/models/categorie';
+import { Fabrics } from 'src/app/models/fabrics';
 import { Product } from 'src/app/models/product';
 import { Size } from 'src/app/models/size';
 import { ProductService } from 'src/app/services/product.service';
@@ -17,17 +18,18 @@ export class PageCreateProductComponent implements OnInit {
   public brandProduct!:Brand[];
   public categorieProduct!: Categorie[];
   public sizeProduct!: Size[];
+  public fabricsProduct!:Fabrics[];
   constructor(private fb: FormBuilder, private productService:ProductService, private Router: Router) { }
 
   ngOnInit(): void {
     this.creerProduit=this.fb.group({
       productName:['',[Validators.required]],
       price: [0, [Validators.required]],
-      fabrics: ['', [Validators.required]],
       numberStock: [0, [Validators.required]],
       mainCategoryId: [1, [Validators.required]],
       mainBrandId: [1, [Validators.required]],
       mainSizeId: [1, [Validators.required]],
+      mainFabricsId: [1, [Validators.required]]
     })
     this.productService.getBrands().subscribe((respbrand) => {
       console.log(respbrand);
@@ -43,6 +45,11 @@ export class PageCreateProductComponent implements OnInit {
       console.log(respsize);
       this.sizeProduct = respsize;
     })
+
+    this.productService.getFabrics().subscribe((respfabrics) => {
+      console.log(respfabrics);
+      this.fabricsProduct = respfabrics;
+    })
     
   }
 
@@ -51,7 +58,7 @@ export class PageCreateProductComponent implements OnInit {
     const newProduct = new Product(
       this.creerProduit.value.productName,
       this.creerProduit.value.price,
-      this.creerProduit.value.fabrics,
+      this.creerProduit.value.mainFabricsId,
       this.creerProduit.value.numberStock,
       this.creerProduit.value.mainCategoryId,
       this.creerProduit.value.mainBrandId,

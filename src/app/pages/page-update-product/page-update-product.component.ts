@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
 import { Categorie } from 'src/app/models/categorie';
+import { Fabrics } from 'src/app/models/fabrics';
 import { Product } from 'src/app/models/product';
 import { Size } from 'src/app/models/size';
 import { ProductService } from 'src/app/services/product.service';
@@ -17,6 +18,7 @@ export class PageUpdateProductComponent implements OnInit {
   public brandProduct!: Brand[];
   public categorieProduct!: Categorie[];
   public sizeProduct!: Size[];
+  public fabricsProduct!: Fabrics[];
   constructor(private fb: FormBuilder, private productService: ProductService, private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
@@ -27,14 +29,13 @@ export class PageUpdateProductComponent implements OnInit {
       this.productService.getProductById(param['id-product']).subscribe((product: Product) => {
         console.log(product);
         this.updateProduct = this.fb.group({
-
           productName: [product.productName, [Validators.required]],
           price: [product.price, [Validators.required]],
-          fabrics: [product.fabrics, [Validators.required]],
           numberStock: [product.numberStock, [Validators.required]],
           mainCategoryId: [Number(product.category.id), [Validators.required]],
           mainBrandId: [Number(product.brand.id), [Validators.required]],
           mainSizeId: [Number(product.size.id), [Validators.required]],
+          mainFabricsId: [Number(product.fabrics.id), [Validators.required]],
           id: [product.id]
         })
       })
@@ -53,6 +54,11 @@ export class PageUpdateProductComponent implements OnInit {
       console.log(respsize);
       this.sizeProduct = respsize;
     })
+
+    this.productService.getFabrics().subscribe((respfabrics) => {
+      console.log(respfabrics);
+      this.fabricsProduct = respfabrics;
+    })
   }
 
   onSubmitUpdateProduct() {
@@ -60,7 +66,6 @@ export class PageUpdateProductComponent implements OnInit {
 
     this.productService.updateProduct(productToUpdate).subscribe((resp) => {
       console.log(resp);
-      // alert(resp.message);
       this.router.navigateByUrl('/list-product');
     })
   }

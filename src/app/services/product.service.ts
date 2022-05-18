@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Brand } from '../models/brand';
 import { Categorie } from '../models/categorie';
+import { Fabrics } from '../models/fabrics';
 import { Product } from '../models/product';
 import { Size } from '../models/size';
 
@@ -19,17 +20,17 @@ export class ProductService {
     const token = localStorage.getItem("token");
 
     const body = {
+      
       "productName": newProduct.productName,
       "price": newProduct.price,
-      "fabrics": newProduct.fabrics,
       "numberStock": newProduct.numberStock,
-      "mainCategoryId": newProduct.category,
+      "mainCategoryId":  newProduct.category,
       "mainBrandId": newProduct.brand,
-      "mainSizeId": newProduct.size
-
+      "mainSizeId": newProduct.size,
+      "mainFabricsId": newProduct.fabrics
     }
     return this.http.post(
-      `${this.urlApi}/products/create`,
+      `${this.urlApi}/products`,
       body,
       { headers: { Authorization: `Bearer ${token}` } }
     )
@@ -74,9 +75,17 @@ export class ProductService {
     )
   }
 
+  getFabrics(): Observable<Fabrics[]> {
+    const token = localStorage.getItem("token");
+    return this.http.get<Fabrics[]>(
+      `${this.urlApi}/fabrics`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+  }
+
   getProductById(productId: string): Observable<Product> {
     const token = localStorage.getItem("token");
-    return this.http.get<Product>(`${this.urlApi}/products/byId/${productId}`,
+    return this.http.get<Product>(`${this.urlApi}/products/${productId}`,
       { headers: { Authorization: `Bearer ${token}` } }
     )
   }
@@ -86,9 +95,16 @@ export class ProductService {
 
     
 
-    return this.http.put<any>(`${this.urlApi}/products/updateProduct/${product.id}`,
+    return this.http.put<any>(`${this.urlApi}/products/${product.id}`,
       product,
       { headers: { Authorization: `Bearer ${token}` } }
     )
+  }
+
+  deleteCountry(productId: string) {
+    const token = localStorage.getItem("token");
+
+    return this.http.delete(`${this.urlApi}/products/${productId}`,
+      { headers: { Authorization: `Bearer ${token}` } })
   }
 }

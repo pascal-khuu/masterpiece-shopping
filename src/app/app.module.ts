@@ -15,6 +15,7 @@ import { PageListProductComponent } from './pages/page-list-product/page-list-pr
 import { PageListUpdateProductComponent } from './pages/page-list-update-product/page-list-update-product.component';
 import { PageUpdateProductComponent } from './pages/page-update-product/page-update-product.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,9 @@ import { PageUpdateProductComponent } from './pages/page-update-product/page-upd
     PageCreateProductComponent,
     PageListProductComponent,
     PageListUpdateProductComponent,
-    PageUpdateProductComponent
+    PageUpdateProductComponent,
+  
+    
   ],
   imports: [
     BrowserModule,
