@@ -3,11 +3,11 @@ export class Product {
     productName:string;
     // picture:String;
     price:number;
-    fabrics:string;
     numberStock:number;
     category:any;
     brand:any;
     size:any;
+    fabrics: any;
 
     constructor (paramProductName:string,paramPrice:number,paramFabrics:string,
                   paramNumberStock:number,paramCategories:any, paramBrands:any, paramSizes:any){
