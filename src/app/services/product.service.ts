@@ -39,7 +39,15 @@ export class ProductService {
     const token = localStorage.getItem("token");
     return this.http.get<Product[]>(
       `${this.urlApi}/products`,
-      { headers: { Authorization: `Bearer ${token}` } }
+      {  }
+    )
+  }
+
+  getProductsUpdate(): Observable<Product[]> {
+    const token = localStorage.getItem("token");
+    return this.http.get<Product[]>(
+      `${this.urlApi}/products/viewProductUpdate`,
+      { headers: { Authorization: `Bearer ${token}` }}
     )
   }
 
@@ -50,6 +58,7 @@ export class ProductService {
       { headers: { Authorization: `Bearer ${token}` } }
     )
   }
+
   getCategories(): Observable<Categorie[]> {
     const token = localStorage.getItem("token");
     return this.http.get<Categorie[]>(
@@ -67,8 +76,18 @@ export class ProductService {
 
   getProductById(productId: string): Observable<Product> {
     const token = localStorage.getItem("token");
-
     return this.http.get<Product>(`${this.urlApi}/products/byId/${productId}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+  }
+
+  updateProduct(product: Product): Observable<any> {
+    const token = localStorage.getItem("token");
+
+    
+
+    return this.http.put<any>(`${this.urlApi}/products/updateProduct/${product.id}`,
+      product,
       { headers: { Authorization: `Bearer ${token}` } }
     )
   }

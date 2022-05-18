@@ -17,7 +17,7 @@ export class PageUpdateComponent implements OnInit {
   public brandProduct!: Brand[];
   public categorieProduct!: Categorie[];
   public sizeProduct!: Size[];
-    constructor(private fb: FormBuilder, private productService: ProductService, private Router: Router,
+    constructor(private fb: FormBuilder, private productService: ProductService, private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -28,13 +28,14 @@ export class PageUpdateComponent implements OnInit {
       console.log(product);
       this.updateProduct = this.fb.group({
        
-      productName: [product.productName, [Validators.required]],
+        productName: [product.productName, [Validators.required]],
         price: [product.price, [Validators.required]],
-      fabrics: [product.fabrics, [Validators.required]],
-      numberStock: [product.numberStock, [Validators.required]],
+        fabrics: [product.fabrics, [Validators.required]],
+        numberStock: [product.numberStock, [Validators.required]],
         mainCategoryId: [Number(product.category.id), [Validators.required]],
         mainBrandId: [Number(product.brand.id), [Validators.required]],
         mainSizeId: [Number(product.size.id), [Validators.required]],
+        id:[product.id]
     })
     })
   })
@@ -55,7 +56,13 @@ export class PageUpdateComponent implements OnInit {
 }
 
 onSubmitUpdateProduct(){
+  const productToUpdate = this.updateProduct.value;
 
+  this.productService.updateProduct(productToUpdate).subscribe((resp) => {
+    console.log(resp);
+    // alert(resp.message);
+    this.router.navigateByUrl('/list-product');
+  })
 }
 }
    

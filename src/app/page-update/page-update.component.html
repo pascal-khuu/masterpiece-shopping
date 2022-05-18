@@ -1,7 +1,7 @@
 <main class="container-xl">
     <h1>Modification du produit</h1>
 
-    <form *ngIf="updateProduct" class="d-grid col-12 col-md-6 mx-auto"  [formGroup]="updateProduct">
+    <form *ngIf="updateProduct" class="d-grid col-12 col-md-6 mx-auto"  [formGroup]="updateProduct" (ngSubmit)="onSubmitUpdateProduct()">
         <div class="mb-3">
             <label for="productNameId" class="form-label">Nom du produit</label>
             <div class="input-group">
@@ -48,8 +48,9 @@
         </select>
 
         <div class="d-grid col-12 col-md-3 ms-auto">
-            <button [disabled]="updateProduct.invalid" type="submit" class="btn btn-dark text-nowrap">Créer</button>
+            <button [disabled]="updateProduct.invalid" type="submit" class="btn btn-dark text-nowrap">Modifier</button>
         </div>
+        
     </form>
 </main>
 

@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PageCreateProductComponent } from './pages/page-create-product/page-create-product.component';
 import { PageListProductComponent } from './pages/page-list-product/page-list-product.component';
 import { PageUpdateComponent } from './page-update/page-update.component';
+import { PageListUpdateProductComponent } from './pages/page-list-update-product/page-list-update-product.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PageUpdateComponent } from './page-update/page-update.component';
     PageNotFoundComponent,
     PageCreateProductComponent,
     PageListProductComponent,
-    PageUpdateComponent
+    PageUpdateComponent,
+    PageListUpdateProductComponent
   ],
   imports: [
     BrowserModule,

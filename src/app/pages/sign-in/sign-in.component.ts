@@ -27,7 +27,7 @@ export class SignInComponent implements OnInit {
         console.log(resp.token);
         // TODO stockage de mon token 
         localStorage.setItem("token", resp.token);
-        this.router.navigateByUrl('/create-product');
+        this.router.navigateByUrl('/list-product');
         this.authentication.messager.next(true);
       },
       // method a appeler en cas d'error

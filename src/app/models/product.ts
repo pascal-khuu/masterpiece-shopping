@@ -1,6 +1,6 @@
 export class Product {
-    id?:String;
-    productName:String;
+    id?:string;
+    productName:string;
     // picture:String;
     price:number;
     fabrics:string;
@@ -9,7 +9,7 @@ export class Product {
     brand:any;
     size:any;
 
-    constructor (paramProductName:String,paramPrice:number,paramFabrics:string,
+    constructor (paramProductName:string,paramPrice:number,paramFabrics:string,
                   paramNumberStock:number,paramCategories:any, paramBrands:any, paramSizes:any){
         this.productName = paramProductName;
         this.price = paramPrice;

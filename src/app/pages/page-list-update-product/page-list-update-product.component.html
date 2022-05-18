@@ -1,0 +1,18 @@
+<thead>
+    <tr>
+        <th>Nom du produit</th>
+        <th>Marque</th>
+    </tr>
+</thead>
+
+<tbody>
+    <tr *ngFor="let product of listProductsUpdate">
+       
+        <td>{{ product.productName }}</td>
+        <td>{{ product.brand.brandName }}</td>
+        <td>
+            <button class="btn btn-warning" routerLink="/update-product/{{product.id}}">Modifier</button>
+        </td>
+    </tr>
+     
+</tbody> 
