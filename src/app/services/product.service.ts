@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Brand } from '../models/brand';
 import { Categorie } from '../models/categorie';
-import { Fabrics } from '../models/fabrics';
+import { Fabric } from '../models/fabric';
 import { Product } from '../models/product';
 import { Size } from '../models/size';
 
@@ -27,7 +27,7 @@ export class ProductService {
       "mainCategoryId":  newProduct.category,
       "mainBrandId": newProduct.brand,
       "mainSizeId": newProduct.size,
-      "mainFabricsId": newProduct.fabrics
+      "mainFabricId": newProduct.fabric
     }
     return this.http.post(
       `${this.urlApi}/products`,
@@ -75,9 +75,9 @@ export class ProductService {
     )
   }
 
-  getFabrics(): Observable<Fabrics[]> {
+  getFabrics(): Observable<Fabric[]> {
     const token = localStorage.getItem("token");
-    return this.http.get<Fabrics[]>(
+    return this.http.get<Fabric[]>(
       `${this.urlApi}/fabrics`,
       { headers: { Authorization: `Bearer ${token}` } }
     )

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
 import { Categorie } from 'src/app/models/categorie';
-import { Fabrics } from 'src/app/models/fabrics';
+import { Fabric } from 'src/app/models/fabric';
 import { Product } from 'src/app/models/product';
 import { Size } from 'src/app/models/size';
 import { ProductService } from 'src/app/services/product.service';
@@ -18,7 +18,7 @@ export class PageCreateProductComponent implements OnInit {
   public brandProduct!:Brand[];
   public categorieProduct!: Categorie[];
   public sizeProduct!: Size[];
-  public fabricsProduct!:Fabrics[];
+  public fabricsProduct!:Fabric[];
   constructor(private fb: FormBuilder, private productService:ProductService, private Router: Router) { }
 
   ngOnInit(): void {

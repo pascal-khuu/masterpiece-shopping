@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
 import { Categorie } from 'src/app/models/categorie';
-import { Fabrics } from 'src/app/models/fabrics';
+import { Fabric } from 'src/app/models/fabric';
 import { Product } from 'src/app/models/product';
 import { Size } from 'src/app/models/size';
 import { ProductService } from 'src/app/services/product.service';
@@ -18,7 +18,7 @@ export class PageUpdateProductComponent implements OnInit {
   public brandProduct!: Brand[];
   public categorieProduct!: Categorie[];
   public sizeProduct!: Size[];
-  public fabricsProduct!: Fabrics[];
+  public fabricsProduct!: Fabric[];
   constructor(private fb: FormBuilder, private productService: ProductService, private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
@@ -35,7 +35,7 @@ export class PageUpdateProductComponent implements OnInit {
           mainCategoryId: [Number(product.category.id), [Validators.required]],
           mainBrandId: [Number(product.brand.id), [Validators.required]],
           mainSizeId: [Number(product.size.id), [Validators.required]],
-          mainFabricsId: [Number(product.fabrics.id), [Validators.required]],
+          mainFabricId: [Number(product.fabric.id), [Validators.required]],
           id: [product.id]
         })
       })

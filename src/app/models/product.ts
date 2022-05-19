@@ -7,13 +7,13 @@ export class Product {
     category:any;
     brand:any;
     size:any;
-    fabrics: any;
+    fabric: any;
 
-    constructor (paramProductName:string,paramPrice:number,paramFabrics:string,
+    constructor (paramProductName:string,paramPrice:number,paramFabric:string,
                   paramNumberStock:number,paramCategories:any, paramBrands:any, paramSizes:any){
         this.productName = paramProductName;
         this.price = paramPrice;
-        this.fabrics= paramFabrics;
+        this.fabric= paramFabric;
         this.numberStock = paramNumberStock;
         this.category = paramCategories;
         this.brand= paramBrands;
