@@ -16,6 +16,5 @@ export class PageListProductComponent implements OnInit {
       console.log(resp);
       this.listProducts = resp;
   })
-
-}
+  }
 }

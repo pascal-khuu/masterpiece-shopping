@@ -2,13 +2,13 @@
     <nav class="sticky-top navbar navbar-expand-md navbar-dark bg-dark">
         <img src="assets/mastershopping.png" alt="logo mastershopping">
         <div class="container-xl">
-            <a class="navbar-brand" routerLink="list-product" >Consulter</a>
+            <a class="navbar-brand" routerLink="list-product" >Nos produits</a>
             <button class="navbar-toggler m-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         <li class="nav-item dropdown" *ngIf="isAuthenticated === true">
-          <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
@@ -16,12 +16,8 @@
                 <a class="nav-link" routerLink="create-product" routerLinkActive="active">Créer </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="list-update-product" routerLinkActive="active">Modifier </a>
+                <a class="nav-link" routerLink="list-update-delete-product" routerLinkActive="active">Modifier-Supprimer </a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" routerLink="delete" routerLinkActive="active">Supprimer </a>
-            </li> -->
-
           </ul>
         </li>
             <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="isAuthenticated === true">

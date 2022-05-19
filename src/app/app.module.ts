@@ -12,8 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageCreateProductComponent } from './pages/page-create-product/page-create-product.component';
 import { PageListProductComponent } from './pages/page-list-product/page-list-product.component';
-import { PageListUpdateProductComponent } from './pages/page-list-update-product/page-list-update-product.component';
 import { PageUpdateProductComponent } from './pages/page-update-product/page-update-product.component';
+import { PageListUpdateDeleteProductComponent } from './pages/page-list-update-delete-product/page-list-update-delete-product.component';
+
 
 
 @NgModule({
@@ -26,8 +27,8 @@ import { PageUpdateProductComponent } from './pages/page-update-product/page-upd
     PageNotFoundComponent,
     PageCreateProductComponent,
     PageListProductComponent,
-    PageListUpdateProductComponent,
     PageUpdateProductComponent,
+    PageListUpdateDeleteProductComponent,
   
     
   ],

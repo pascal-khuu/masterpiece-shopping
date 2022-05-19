@@ -92,16 +92,13 @@ export class ProductService {
 
   updateProduct(product: Product): Observable<any> {
     const token = localStorage.getItem("token");
-
-    
-
     return this.http.put<any>(`${this.urlApi}/products/${product.id}`,
       product,
       { headers: { Authorization: `Bearer ${token}` } }
     )
   }
 
-  deleteCountry(productId: string) {
+  deleteProduct(productId: string) {
     const token = localStorage.getItem("token");
 
     return this.http.delete(`${this.urlApi}/products/${productId}`,

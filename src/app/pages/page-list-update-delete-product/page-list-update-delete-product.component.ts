@@ -3,35 +3,29 @@ import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
-  selector: 'app-page-delete',
-  templateUrl: './page-delete.component.html',
-  styleUrls: ['./page-delete.component.css']
+  selector: 'app-page-list-update-delete-product',
+  templateUrl: './page-list-update-delete-product.component.html',
+  styleUrls: ['./page-list-update-delete-product.component.css']
 })
-export class PageDeleteComponent implements OnInit {
-  listProductDelete!:Product[];
-  listProducts!:Product[];
+export class PageListUpdateDeleteProductComponent implements OnInit {
+  listProductsUpdateOrDelete!: Product[];
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.productService.getProductsUpdate().subscribe((resp) => {
       console.log(resp);
-      this.listProductDelete = resp;
-    })
-    this.productService.getProducts().subscribe((resp)=>{
-      console.log(resp);
-      this.listProducts = resp;
-    })
-
+      this.listProductsUpdateOrDelete = resp;
+  })
   }
   onSubmitDelete(productId: string | undefined) {
     console.log(productId);
     if (productId) {
       this.productService.deleteProduct(productId).subscribe(
-        (resp)=> {
+        (resp) => {
           console.log(resp);
-          this.listProductDelete = this.listProductDelete.filter(product => product.id !== productId);
+          this.listProductsUpdateOrDelete = this.listProductsUpdateOrDelete.filter(product => product.id !== productId);
         }
       )
-      }    
+    }
   }
 }
