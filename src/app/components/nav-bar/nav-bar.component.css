@@ -1,3 +1,7 @@
 .clickable {
     cursor: pointer;
 }
+
+.text-success {
+    color: red !important;
+}

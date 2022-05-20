@@ -22,9 +22,8 @@ export class NavBarComponent implements OnInit {
       console.log(message);
       this.isAuthenticated = message;
     })
-
-     
   }
+  
   public onClickLogout() {
     localStorage.removeItem('token');
     this.isAuthenticated = false;
