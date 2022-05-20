@@ -3,7 +3,7 @@
    
     <form class="d-grid col-12 col-md-6 mx-auto" (ngSubmit)= "onSubmitProduct()" [formGroup]="creerProduit">
         <div class="mb-3">
-        <label for="productNameId" class="form-label">Nom du produit</label>
+        <label for="productNameId" class="form-label">Nom</label>
             <div class="input-group">
                 <input formControlName="productName"  type="text" class="form-control" id="productNameId" aria-label="userHelp"aria-describedby="basic-addon1">
             </div>
@@ -19,7 +19,7 @@
             <option *ngFor="let size of sizeProduct" id="sizeId" value={{size.id}}>{{size.sizeName}}</option>
         </select>
         
-        <label for="fabricsId" class="form-label">Tissu</label>
+        <label for="fabricsId" class="form-label">Matière</label>
         <select formControlName="mainFabricsId" name="fabrics" id="fabricsId">
             <option *ngFor="let fabric of fabricsProduct" id="fabricsId" value={{fabric.id}}>{{fabric.fabricName}}</option>
         </select>
@@ -38,7 +38,7 @@
         </div>
     
         <div class="mb-3">
-        <label for="numberStockId" class="form-label">Nombre de stocks</label>
+        <label for="numberStockId" class="form-label">Stock</label>
             <div class="input-group">
                 <input formControlName= "numberStock" type="number" class="form-control" id="numberStockId" aria-label="userHelp" aria-describedby="basic-addon1">
             </div>
