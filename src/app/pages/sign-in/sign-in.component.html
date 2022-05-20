@@ -1,15 +1,21 @@
-<form class="d-grid col-12 col-md-6 mx-auto" #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
-    <label for="usernameid" class="form-label">Nom d'utilisateur</label>
-    <div class="input-group">
-        <input type="text" class="form-control" id="usernameid" name="username" aria-label="username"
-            aria-describedby="basic-addon1" ngModel required>
+<main class="container-xl">
+    <h1> Connexion </h1>
+    <div class="alert-danger" *ngIf="signInError">
+        Informations de connexion incorrectes
     </div>
-    <label for="password" class="form-label">Mot de passe</label>
-    <div class="input-group">
-        <input  type="password" class="form-control" id="password" name="password" aria-label="password"
-            aria-describedby="basic-addon1" ngModel required>
-    </div>
-    <div class="d-grid col-12 col-md-3 ms-auto">
-        <button type="submit" class="btn btn-dark text-nowrap" [disabled]="myForm.invalid">Soumettre</button>
-    </div>
-</form>
+    <form class="d-grid col-12 col-md-6 mx-auto" #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+        <label for="usernameid" class="form-label">Nom d'utilisateur</label>
+        <div class="input-group">
+            <input type="text" class="form-control" id="usernameid" name="username" aria-label="username"
+                aria-describedby="basic-addon1" ngModel required>
+        </div>
+        <label for="password" class="form-label">Mot de passe</label>
+        <div class="input-group">
+            <input  type="password" class="form-control" id="password" name="password" aria-label="password"
+                aria-describedby="basic-addon1" ngModel required>
+        </div>
+        <div class="d-grid col-12 col-md-3 ms-auto">
+            <button type="submit" class="btn btn-dark text-nowrap" [disabled]="myForm.invalid">Soumettre</button>
+        </div>
+    </form>
+</main>
