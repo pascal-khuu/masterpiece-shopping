@@ -1,6 +1,5 @@
 <main class="container-xl">
     <h1>Création un produit</h1>
-   
     <form class="d-grid col-12 col-md-6 mx-auto" (ngSubmit)= "onSubmitProduct()" [formGroup]="creerProduit">
         <div class="mb-3">
         <label for="productNameId" class="form-label">Nom</label>
@@ -13,13 +12,12 @@
             <option *ngFor="let brand of brandProduct" id="brandId" value={{brand.id}}>{{brand.brandName}}</option>
         </select>
         
-        
         <label for="sizesId" class="form-label">Taille</label>
         <select formControlName="mainSizeId" name="size" id="size">
             <option *ngFor="let size of sizeProduct" id="sizeId" value={{size.id}}>{{size.sizeName}}</option>
         </select>
         
-        <label for="fabricsId" class="form-label">Matière</label>
+        <label for="fabricsId" class="form-label">Tissu</label>
         <select formControlName="mainFabricsId" name="fabrics" id="fabricsId">
             <option *ngFor="let fabric of fabricsProduct" id="fabricsId" value={{fabric.id}}>{{fabric.fabricName}}</option>
         </select>

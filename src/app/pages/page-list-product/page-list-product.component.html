@@ -2,22 +2,25 @@
     <h1 class="mb-4 mt-4"> Nos Produits</h1>
     <div class="table-responsive-md">
         <table class="table table-responsive-sm table-bordered table-hover">
-            <caption>List of products </caption>
+            <caption>Liste des produits </caption>
             <thead class="table-dark">
                 <tr class=" text-center">
                     <th></th>
                     <th>Nom </th>
                     <th>Marque</th>
                     <th>Taille</th>
-                    <th>Matière</th>
+                    <th>Tissu</th>
                     <th>Catégorie</th>
                     <th>Prix</th>
                     <th>Stock</th>   
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let product of listProducts">
-                    <td> <img src="assets/shopping_picture.jpg" alt="picture shopping"></td>
+                <tr *ngFor="let product of listProducts" class=" text-center" [ngSwitch]="product.category">
+                    <td *ngSwitchCase="product.category.id==1"> <img src="assets/shopping_pantalon.png" alt="picture shopping"></td>
+                    <td *ngSwitchCase="product.category.id==2"> <img src="assets/shopping_jeans.png" alt="picture shopping"></td>
+                    <td *ngSwitchCase="product.category.id==3"> <img src="assets/Tshirt.png" alt="picture shopping"></td>
+                    <td *ngSwitchDefault> Pas d'image</td>
                     <td>{{ product.productName }}</td>
                     <td>{{ product.brand.brandName }}</td>
                     <td>{{ product.size.sizeName}}</td>
