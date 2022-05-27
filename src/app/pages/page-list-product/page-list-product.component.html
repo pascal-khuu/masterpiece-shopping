@@ -16,10 +16,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let product of listProducts" class=" text-center" [ngSwitch]="product.category">
-                    <td *ngSwitchCase="product.category.id==1"> <img src="assets/shopping_pantalon.png" alt="picture shopping"></td>
-                    <td *ngSwitchCase="product.category.id==2"> <img src="assets/shopping_jeans.png" alt="picture shopping"></td>
-                    <td *ngSwitchCase="product.category.id==3"> <img src="assets/Tshirt.png" alt="picture shopping"></td>
+                <tr *ngFor="let product of listProducts" class=" text-center" [ngSwitch]="product.category.id">
+                    <td *ngSwitchCase="1"> <img src="assets/shopping_pantalon.png" alt="picture shopping"></td>
+                    <td *ngSwitchCase="2"> <img src="assets/shopping_jeans.png" alt="picture shopping"></td>
+                    <td *ngSwitchCase="3"> <img src="assets/Tshirt.png" alt="picture shopping"></td>
                     <td *ngSwitchDefault> Pas d'image</td>
                     <td>{{ product.productName }}</td>
                     <td>{{ product.brand.brandName }}</td>
