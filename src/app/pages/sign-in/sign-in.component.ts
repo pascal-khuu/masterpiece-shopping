@@ -25,12 +25,11 @@ export class SignInComponent implements OnInit {
       // method a appeler en cas de succès
       next: (resp: any) => {
         console.log(resp.token);
-        // TODO stockage de mon token 
         localStorage.setItem("token", resp.token);
         this.router.navigateByUrl('/list-product');
         this.authentication.messager.next(true);
       },
-      // method a appeler en cas d'error
+      // method à appeler en cas d'erreur
       error: (err: any) => {
         // affichage message d'erreur coté page
         this.signInError = true;

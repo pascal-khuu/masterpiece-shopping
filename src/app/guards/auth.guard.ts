@@ -20,18 +20,29 @@ export class AuthGuard implements CanActivate {
       console.log(decodedToken);
       let rolesBool:  string[];
       rolesBool=decodedToken.roles;
+      const expirationDate = new Date(decodedToken.exp*1000);
+      const currentDate = new Date("06/02/2022");
+      console.log(expirationDate);
+      console.log(currentDate);
      
-      if (!rolesBool){
-        alert("vous n'êtes pas administrateur");
-        this.router.navigateByUrl('/list-product');
+      if (expirationDate<currentDate){
+        localStorage.removeItem('token');
+        this.router.navigateByUrl('/sign-in');
         return false;
       }
+      else{
+        if (!rolesBool){
+          alert("vous n'êtes pas administrateur");
+          this.router.navigateByUrl('/list-product');
+          return false;
+        }
 
-      if ((rolesBool.length > 0)&& rolesBool.includes("ROLE_ADMIN")) {
-        alert("vous êtes administrateur");
-        return true;
-      } else {
-        return false
+        if ((rolesBool.length > 0)&& rolesBool.includes("ROLE_ADMIN")) {
+          alert("vous êtes administrateur");
+          return true;
+        } else {
+          return false;
+        }
       }
       
     }
