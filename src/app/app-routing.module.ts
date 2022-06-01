@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   { path: 'create-product', canActivate: [AuthGuard], component:PageCreateProductComponent},
   {path:'list-product', component:PageListProductComponent},
-  {path:'list-update-delete-product', component:PageListUpdateDeleteProductComponent},
+  { path: 'list-update-delete-product', canActivate: [AuthGuard], component:PageListUpdateDeleteProductComponent},
   {path: 'update-product/:id-product', canActivate: [AuthGuard], component: PageUpdateProductComponent },
   { path: '**', component: PageNotFoundComponent}
   
