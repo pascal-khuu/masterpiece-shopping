@@ -32,13 +32,11 @@ export class AuthGuard implements CanActivate {
       }
       else{
         if (!rolesBool){
-          alert("vous n'êtes pas administrateur");
           this.router.navigateByUrl('/list-product');
           return false;
         }
 
         if ((rolesBool.length > 0)&& rolesBool.includes("ROLE_ADMIN")) {
-          alert("vous êtes administrateur");
           return true;
         } else {
           return false;
