@@ -10,6 +10,11 @@
                     aria-label="userHelp" aria-describedby="basic-addon1">
             </div>
         </div>
+        <label for="pictureId" class="form-label">Lien de l'image</label>
+        <div class="input-group">
+            <input formControlName="pictureUrl"  type="text"
+                class="form-control" id="pictureId" aria-label="userHelp" aria-describedby="basic-addon1">
+        </div>
         <label for="brandsId" class="form-label">Marques</label>
         <select formControlName="mainBrandId" name="brand" id="brand">
             <option *ngFor="let brand of brandProduct" id="brandId" value={{brand.id}}>{{brand.brandName}}</option>

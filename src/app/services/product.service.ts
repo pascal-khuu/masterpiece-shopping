@@ -22,6 +22,7 @@ export class ProductService {
     const body = {
       
       "productName": newProduct.productName,
+      "pictureUrl": newProduct.pictureUrl,
       "price": newProduct.price,
       "numberStock": newProduct.numberStock,
       "mainCategoryId":  newProduct.category,

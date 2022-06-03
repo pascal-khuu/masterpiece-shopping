@@ -30,6 +30,7 @@ export class PageUpdateProductComponent implements OnInit {
         console.log(product);
         this.updateProduct = this.fb.group({
           productName: [product.productName, [Validators.required]],
+          pictureUrl: [product.pictureUrl],
           mainBrandId: [Number(product.brand.id), [Validators.required]],
           mainSizeId: [Number(product.size.id), [Validators.required]],
           mainFabricId: [Number(product.fabric.id), [Validators.required]],

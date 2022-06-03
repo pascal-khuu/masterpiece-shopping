@@ -24,12 +24,13 @@ export class PageCreateProductComponent implements OnInit {
   ngOnInit(): void {
     this.creerProduit=this.fb.group({
       productName:['',[Validators.required]],
+      pictureUrl:[''],
       price: [0, [Validators.required]],
       numberStock: [0, [Validators.required]],
-      mainCategoryId: [1, [Validators.required]],
-      mainBrandId: [1, [Validators.required]],
-      mainSizeId: [1, [Validators.required]],
-      mainFabricsId: [1, [Validators.required]]
+      mainCategoryId: ['', [Validators.required]],
+      mainBrandId: ['', [Validators.required]],
+      mainSizeId: ['', [Validators.required]],
+      mainFabricsId: ['', [Validators.required]]
     })
     this.productService.getBrands().subscribe((respbrand) => {
       console.log(respbrand);
@@ -57,6 +58,7 @@ export class PageCreateProductComponent implements OnInit {
     console.log(this.creerProduit.value);
     const newProduct = new Product(
       this.creerProduit.value.productName,
+      this.creerProduit.value.pictureUrl,
       this.creerProduit.value.price,
       this.creerProduit.value.mainFabricsId,
       this.creerProduit.value.numberStock,
@@ -66,7 +68,7 @@ export class PageCreateProductComponent implements OnInit {
     );
     console.log(newProduct);
     this.productService.createNewProduct(newProduct).subscribe(() => {
-      console.log("un produit a été crée");
+      console.log("Un produit a été crée.");
       alert("un produit est crée");
       this.Router.navigateByUrl("/list-product");
     })

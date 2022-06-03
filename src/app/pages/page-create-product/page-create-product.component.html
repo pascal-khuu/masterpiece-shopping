@@ -4,26 +4,35 @@
         <div class="mb-3">
         <label for="productNameId" class="form-label">Nom</label>
             <div class="input-group">
-                <input formControlName="productName"  type="text" class="form-control" id="productNameId" aria-label="userHelp"aria-describedby="basic-addon1">
+                <input formControlName="productName" placeholder="Veuillez saisir le nom du produit"  type="text" class="form-control" id="productNameId" aria-label="userHelp"aria-describedby="basic-addon1">
             </div>
         </div>
+        <label for="pictureId" class="form-label">Lien de l'image</label>
+        <div class="input-group">
+            <input formControlName="pictureUrl" placeholder="Veuillez saisir le lien de l'image" type="text"
+                class="form-control" id="pictureId" aria-label="userHelp" aria-describedby="basic-addon1">
+        </div>
         <label for="brandsId" class="form-label">Marque</label>
-        <select formControlName="mainBrandId" name="brand" id="brand">
+        <select formControlName="mainBrandId"  name="brand" id="brand">
+            <option value="" disabled selected> Veuillez sélectionner la marque. </option>
             <option *ngFor="let brand of brandProduct" id="brandId" value={{brand.id}}>{{brand.brandName}}</option>
         </select>
         
         <label for="sizesId" class="form-label">Taille</label>
-        <select formControlName="mainSizeId" name="size" id="size">
+        <select formControlName="mainSizeId"  name="size" id="size">
+            <option value="" disabled selected> Veuillez sélectionner la taille. </option>
             <option *ngFor="let size of sizeProduct" id="sizeId" value={{size.id}}>{{size.sizeName}}</option>
         </select>
         
         <label for="fabricsId" class="form-label">Tissu</label>
-        <select formControlName="mainFabricsId" name="fabrics" id="fabricsId">
+        <select formControlName="mainFabricsId"  name="fabrics" id="fabricsId">
+            <option value="" disabled selected> Veuillez sélectionner le tissu. </option>
             <option *ngFor="let fabric of fabricsProduct" id="fabricsId" value={{fabric.id}}>{{fabric.fabricName}}</option>
         </select>
 
         <label for="categoriesId" class="form-label">Catégorie</label>
-        <select formControlName="mainCategoryId" name="categorie" id="categorie">
+        <select formControlName="mainCategoryId"  name="categorie" id="categorie">
+            <option value="" disabled selected> Veuillez sélectionner la catégorie. </option>
             <option *ngFor="let categorie of categorieProduct" id="categorieId" value={{categorie.id}}>
                 {{categorie.categoryName}}</option>
         </select>
