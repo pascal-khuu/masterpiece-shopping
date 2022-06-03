@@ -69,7 +69,6 @@ export class PageCreateProductComponent implements OnInit {
     console.log(newProduct);
     this.productService.createNewProduct(newProduct).subscribe(() => {
       console.log("Un produit a été crée.");
-      alert("un produit est crée");
       this.Router.navigateByUrl("/list-product");
     })
 }
