@@ -16,23 +16,23 @@
                 class="form-control" id="pictureId" aria-label="userHelp" aria-describedby="basic-addon1">
         </div>
         <label for="brandsId" class="form-label">Marque</label>
-        <select formControlName="mainBrandId" name="brand" id="brand">
-            <option *ngFor="let brand of brandProduct" id="brandId" value={{brand.id}}>{{brand.brandName}}</option>
+        <select formControlName="mainBrandId" name="brand" id="brandsId">
+            <option *ngFor="let brand of brandProduct"  value={{brand.id}}>{{brand.brandName}}</option>
         </select>
         
         <label for="sizesId" class="form-label">Taille</label>
-        <select formControlName="mainSizeId" name="size" id="size">
-            <option *ngFor="let size of sizeProduct" id="sizeId" value={{size.id}}>{{size.sizeName}}</option>
+        <select formControlName="mainSizeId" name="size" id="sizesId">
+            <option *ngFor="let size of sizeProduct"  value={{size.id}}>{{size.sizeName}}</option>
         </select>
         
         <label for="fabricsId" class="form-label">Tissu</label>
-        <select formControlName="mainFabricId" name="fabric" id="fabricId">
-            <option *ngFor="let fabric of fabricsProduct" id="fabricId" value={{fabric.id}}>{{fabric.fabricName}}</option>
+        <select formControlName="mainFabricId" name="fabric" id="fabricsId">
+            <option *ngFor="let fabric of fabricsProduct"  value={{fabric.id}}>{{fabric.fabricName}}</option>
         </select>
 
         <label for="categoriesId" class="form-label">Catégorie</label>
-        <select formControlName="mainCategoryId" name="categorie" id="categorie">
-            <option *ngFor="let categorie of categorieProduct" id="categorieId" value={{categorie.id}}>
+        <select formControlName="mainCategoryId" name="categorie" id="categoriesId">
+            <option *ngFor="let categorie of categorieProduct"  value={{categorie.id}}>
                 {{categorie.categoryName}}</option>
         </select>
         <div class="mb-3">
