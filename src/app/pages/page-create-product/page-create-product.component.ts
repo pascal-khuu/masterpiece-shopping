@@ -24,9 +24,9 @@ export class PageCreateProductComponent implements OnInit {
   ngOnInit(): void {
     this.creerProduit=this.fb.group({
       productName:['',[Validators.required]],
-      pictureUrl:[''],
-      price: [0, [Validators.required]],
-      numberStock: [0, [Validators.required]],
+      pictureUrl: ['', [Validators.required]],
+      price: [0, [Validators.required,Validators.min(0)]],
+      numberStock: [0, [Validators.required, Validators.min(0)]],
       mainCategoryId: ['', [Validators.required]],
       mainBrandId: ['', [Validators.required]],
       mainSizeId: ['', [Validators.required]],

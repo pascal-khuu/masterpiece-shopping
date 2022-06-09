@@ -6,11 +6,19 @@
             <div class="input-group">
                 <input formControlName="productName" placeholder="Veuillez saisir le nom du produit"  type="text" class="form-control" id="productNameId" aria-label="userHelp"aria-describedby="basic-addon1">
             </div>
+            <div class="form-text alert-danger"
+                *ngIf="creerProduit.controls['productName'].touched && creerProduit.controls['productName'].getError('required')">
+                le nom est obligatoire
+            </div>
         </div>
         <label for="pictureId" class="form-label">Lien de l'image</label>
         <div class="input-group">
             <input formControlName="pictureUrl" placeholder="Veuillez saisir le lien de l'image" type="text"
                 class="form-control" id="pictureId" aria-label="userHelp" aria-describedby="basic-addon1">
+        </div>
+        <div class="form-text alert-danger"
+            *ngIf="creerProduit.controls['pictureUrl'].touched && creerProduit.controls['pictureUrl'].getError('required')">
+            le lien de l'image est obligatoire
         </div>
         <label for="brandsId" class="form-label">Marque</label>
         <select formControlName="mainBrandId"  name="brand" id="brandsId">
@@ -29,6 +37,10 @@
             <option value="" disabled selected> Veuillez sélectionner le tissu. </option>
             <option *ngFor="let fabric of fabricsProduct" value={{fabric.id}}>{{fabric.fabricName}}</option>
         </select>
+        <div class="form-text alert-danger"
+            *ngIf="creerProduit.controls['mainFabricsId'].touched && creerProduit.controls['mainFabricsId'].getError('required')">
+            le tissu est obligatoire
+        </div>
 
         <label for="categoriesId" class="form-label">Catégorie</label>
         <select formControlName="mainCategoryId"  name="categorie" id="categoriesId">
@@ -36,18 +48,38 @@
             <option *ngFor="let categorie of categorieProduct"  value={{categorie.id}}>
                 {{categorie.categoryName}}</option>
         </select>
+        <div class="form-text alert-danger"
+            *ngIf="creerProduit.controls['mainCategoryId'].touched && creerProduit.controls['mainCategoryId'].getError('required')">
+            la catégorie est obligatoire
+        </div>
 
         <div class="mb-3">
         <label for="priceId" class="form-label">Prix</label>
             <div class="input-group">
                 <input formControlName="price" type="number" step="0.01" class="form-control" id="priceId" aria-label="userHelp" aria-describedby="basic-addon1">
             </div>
+            <div class="form-text alert-danger"
+                *ngIf="creerProduit.controls['price'].touched && creerProduit.controls['price'].getError('required')">
+                le prix est obligatoire 
+            </div>
+            <div class="form-text alert-danger"
+                *ngIf="creerProduit.controls['price'].getError('min')">
+                Le prix doit être positif
+            </div>
+            
         </div>
     
         <div class="mb-3">
         <label for="numberStockId" class="form-label">Stock</label>
             <div class="input-group">
                 <input formControlName= "numberStock" type="number" class="form-control" id="numberStockId" aria-label="userHelp" aria-describedby="basic-addon1">
+            </div>
+            <div class="form-text alert-danger"
+                *ngIf="creerProduit.controls['numberStock'].touched && creerProduit.controls['numberStock'].getError('required')">
+                le nombre de stock est obligatoire
+            </div>
+            <div class="form-text alert-danger" *ngIf="creerProduit.controls['numberStock'].getError('min')">
+                Le stock doit être positif
             </div>
         </div> 
              
